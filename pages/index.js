@@ -5,11 +5,17 @@ import BoardColumn from '../components/BoardColumn';
 import TaskCard from '../components/TaskCard';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
+import TaskModal from '../components/TaskModal';
 
 export default function Home() {
+  const [search, setSearch] = useState('');
   const { tasks, setTasks, moveTask } = useTaskStore();
   const [activeId, setActiveId] = useState(null);
+  const [selectedTask, setSelectedTask] = useState(null);
 
+  const filteredTasks = tasks.filter((task) =>
+  task.title.toLowerCase().includes(search.toLowerCase())
+);
   // Load tasks from localStorage or fetch from JSON
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -17,6 +23,7 @@ export default function Home() {
     const saved = localStorage.getItem('tasks');
     if (saved && JSON.parse(saved).length > 0) {
       setTasks(JSON.parse(saved));
+
     } else {
       fetch('/data/tasks.json')
         .then((res) => res.json())
@@ -57,7 +64,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Header />
+      <Header search={search} setSearch={setSearch} />
 
       <div className="flex flex-1">
         {/* Sidebar */}
@@ -106,13 +113,17 @@ export default function Home() {
                   key={col.status}
                   status={col.status}
                   color={col.color}
-                  tasks={tasks.filter((task) => task.status === col.status)}
+                  tasks={filteredTasks.filter((task) => task.status === col.status)}
+                  onTaskClick={(task) => setSelectedTask(task)}
                 />
               ))}
               <DragOverlay>
                 {activeTask ? <TaskCard task={activeTask} /> : null}
               </DragOverlay>
             </DndContext>
+                      {selectedTask && (
+            <TaskModal task={selectedTask} onClose={() => setSelectedTask(null)} />
+          )}
           </main>
         </div>
       </div>

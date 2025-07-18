@@ -3,7 +3,7 @@ import { useDroppable } from '@dnd-kit/core';
 import { Plus, MoreHorizontal } from 'lucide-react';
 import TaskCard from './TaskCard';
 
-export default function BoardColumn({ status, color, tasks }) {
+export default function BoardColumn({ status, color, tasks, onTaskClick }) {
   const { setNodeRef, isOver } = useDroppable({ id: status });
 
   return (
@@ -26,7 +26,7 @@ export default function BoardColumn({ status, color, tasks }) {
 
       <div className="board-column__list">
         {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
+          <TaskCard key={task.id} task={task} onClick={() => onTaskClick(task)}/>
         ))}
       </div>
     </div>

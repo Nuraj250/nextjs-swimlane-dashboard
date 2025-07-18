@@ -18,5 +18,166 @@
     ],
     "attachments": 1,
     "reports": "1 Report"
+  },
+  {
+    "id": "3",
+    "title": "Write Unit Tests",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=5"],
+    "attachments": 0,
+    "reports": "No Reports"
+  },
+  {
+    "id": "4",
+    "title": "SEO Optimization",
+    "status": "Approved",
+    "avatars": ["https://i.pravatar.cc/40?img=8"],
+    "attachments": 3,
+    "reports": "5 Reports"
+  },
+  {
+    "id": "5",
+    "title": "Set Up CI/CD",
+    "status": "In Progress",
+    "avatars": ["https://i.pravatar.cc/40?img=7"],
+    "attachments": 1,
+    "reports": "2 Reports"
+  },
+  {
+    "id": "6",
+    "title": "Marketing Email Design",
+    "status": "Reject",
+    "avatars": ["https://i.pravatar.cc/40?img=4"],
+    "attachments": 0,
+    "reports": "Rejected"
+  },
+  {
+    "id": "7",
+    "title": "Database Schema Review",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=9"],
+    "attachments": 2,
+    "reports": "3 Reports"
+  },
+  {
+    "id": "8",
+    "title": "Accessibility Audit",
+    "status": "Approved",
+    "avatars": ["https://i.pravatar.cc/40?img=10"],
+    "attachments": 2,
+    "reports": "Audit Passed"
+  },
+  {
+    "id": "9",
+    "title": "Add Analytics Integration",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=12"],
+    "attachments": 1,
+    "reports": "1 Report"
+  },
+  {
+    "id": "10",
+    "title": "Mobile Responsiveness Fixes",
+    "status": "In Progress",
+    "avatars": ["https://i.pravatar.cc/40?img=13"],
+    "attachments": 3,
+    "reports": "4 Reports"
+  },
+  {
+    "id": "11",
+    "title": "Component Library Review",
+    "status": "Approved",
+    "avatars": ["https://i.pravatar.cc/40?img=14"],
+    "attachments": 2,
+    "reports": "3 Reports"
+  },
+  {
+    "id": "12",
+    "title": "Prepare Presentation Deck",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=15"],
+    "attachments": 1,
+    "reports": "2 Reports"
+  },
+  {
+    "id": "13",
+    "title": "User Onboarding Flow",
+    "status": "In Progress",
+    "avatars": ["https://i.pravatar.cc/40?img=16"],
+    "attachments": 2,
+    "reports": "1 Report"
+  },
+  {
+    "id": "14",
+    "title": "Bug Fix: Login Crash",
+    "status": "Reject",
+    "avatars": ["https://i.pravatar.cc/40?img=17"],
+    "attachments": 0,
+    "reports": "Crash Logs Attached"
+  },
+  {
+    "id": "15",
+    "title": "Upgrade Dependencies",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=18"],
+    "attachments": 1,
+    "reports": "None"
+  },
+  {
+    "id": "16",
+    "title": "Create API Documentation",
+    "status": "In Progress",
+    "avatars": ["https://i.pravatar.cc/40?img=19"],
+    "attachments": 2,
+    "reports": "Draft Ready"
+  },
+  {
+    "id": "17",
+    "title": "Update Project Roadmap",
+    "status": "Approved",
+    "avatars": ["https://i.pravatar.cc/40?img=20"],
+    "attachments": 0,
+    "reports": "Final Version"
+  },
+  {
+    "id": "18",
+    "title": "New Logo Design",
+    "status": "Reject",
+    "avatars": ["https://i.pravatar.cc/40?img=21"],
+    "attachments": 1,
+    "reports": "Needs Rework"
+  },
+  {
+    "id": "19",
+    "title": "Implement Feedback Tool",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=22"],
+    "attachments": 2,
+    "reports": "User Feedback Needed"
+  },
+  {
+    "id": "20",
+    "title": "Create Blog Layout",
+    "status": "In Progress",
+    "avatars": ["https://i.pravatar.cc/40?img=23"],
+    "attachments": 1,
+    "reports": "Design Drafted"
+  },
+  {
+    "id": "21",
+    "title": "Security Audit",
+    "status": "Approved",
+    "avatars": ["https://i.pravatar.cc/40?img=24"],
+    "attachments": 2,
+    "reports": "Audit Completed"
+  },
+  {
+    "id": "22",
+    "title": "Fix Broken Links",
+    "status": "To Do",
+    "avatars": ["https://i.pravatar.cc/40?img=25"],
+    "attachments": 0,
+    "reports": "Link Report Attached"
   }
+
 ]
