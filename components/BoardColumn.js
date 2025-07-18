@@ -1,47 +1,33 @@
-// components/TaskCard.js
 import React from 'react';
-import { useDraggable } from '@dnd-kit/core';
+import { useDroppable } from '@dnd-kit/core';
+import { Plus, MoreHorizontal } from 'lucide-react';
+import TaskCard from './TaskCard';
 
-export default function TaskCard({ task }) {
-      if (!task) return null; // Prevents crash when task is undefined
-
-  const { attributes, listeners, setNodeRef } = useDraggable({
-    id: task.id,
-  });
+export default function BoardColumn({ status, color, tasks }) {
+  const { setNodeRef, isOver } = useDroppable({ id: status });
 
   return (
     <div
       ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      className="bg-white rounded-xl shadow p-4 space-y-3 border hover:shadow-md transition cursor-move"
+      className={`board-column ${isOver ? 'board-column--over' : ''}`}
     >
-      <div className="flex items-center space-x-2 text-xs">
-        <span className="w-2 h-2 rounded-full bg-red-500" />
-        <span className="text-gray-500 font-medium">{task.tag || 'Design'}</span>
-      </div>
-
-      <h3 className="font-semibold text-sm text-gray-800">{task.title}</h3>
-
-      <div className="flex items-center justify-between">
-        <div className="flex -space-x-2">
-          {(task.avatars || []).map((url, i) => (
-            <img
-              key={i}
-              src={url}
-              className="w-6 h-6 rounded-full border-2 border-white"
-              alt="avatar"
-            />
-          ))}
+      <div className="board-column__header">
+        <span
+          className="board-column__badge"
+          style={{ backgroundColor: color }}
+        >
+          {status}
+        </span>
+        <div className="board-column__controls">
+          <Plus size={16} className="board-column__icon" />
+          <MoreHorizontal size={16} className="board-column__icon" />
         </div>
-        <button className="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-lg">
-          Manage
-        </button>
       </div>
 
-      <div className="flex items-center justify-between text-xs text-gray-500 pt-2 border-t">
-        <span>{task.attachments || 0} Files</span>
-        <span className="text-red-500 font-semibold">{task.reports || '2 Reports'}</span>
+      <div className="board-column__list">
+        {tasks.map((task) => (
+          <TaskCard key={task.id} task={task} />
+        ))}
       </div>
     </div>
   );

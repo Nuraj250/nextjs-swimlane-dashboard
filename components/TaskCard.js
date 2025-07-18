@@ -1,44 +1,62 @@
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
+import { Paperclip, MessageCircle, AlertCircle, CalendarDays } from 'lucide-react';
 
 export default function TaskCard({ task }) {
-  const { attributes, listeners, setNodeRef } = useDraggable({
+  const { attributes, listeners, setNodeRef, transform, transition } = useDraggable({
     id: task.id,
   });
+
+  const style = {
+    transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : undefined,
+    transition,
+  };
 
   return (
     <div
       ref={setNodeRef}
-      {...listeners}
       {...attributes}
-      className="bg-white rounded-xl shadow p-4 space-y-3 border hover:shadow-md transition cursor-move"
+      {...listeners}
+      className="task-card"
+      style={style}
     >
-      <div className="flex items-center space-x-2 text-xs">
-        <span className="w-2 h-2 rounded-full bg-red-500" />
-        <span className="text-gray-500 font-medium">{task.tag || 'Design'}</span>
+      <div className="task-card__top">
+        <span className={`task-card__tag ${task.tagColor || 'default'}`}>{task.tag}</span>
+        <button className="task-card__options">•••</button>
       </div>
 
-      <h3 className="font-semibold text-sm text-gray-800">{task.title}</h3>
+      <h4 className="task-card__title">{task.title}</h4>
 
-      <div className="flex items-center justify-between">
-        <div className="flex -space-x-2">
-          {(task.avatars || []).map((url, i) => (
-            <img
-              key={i}
-              src={url}
-              className="w-6 h-6 rounded-full border-2 border-white"
-              alt="avatar"
-            />
+      <div className="task-card__meta">
+        <div className="task-card__avatars">
+          {task.avatars?.map((url, index) => (
+            <img key={index} src={url} alt="avatar" className="task-card__avatar" />
           ))}
         </div>
-        <button className="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-lg">
-          Manage
-        </button>
+        {task.priority && <span className={`task-card__priority ${task.priority.toLowerCase()}`}>{task.priority}</span>}
       </div>
 
-      <div className="flex items-center justify-between text-xs text-gray-500 pt-2 border-t">
-        <span>{task.attachments || 0} Files</span>
-        <span className="text-red-500 font-semibold">{task.reports || '2 Reports'}</span>
+      <div className="task-card__footer">
+        {task.attachments !== undefined && (
+          <span className="task-card__icon">
+            <Paperclip size={14} /> {task.attachments}
+          </span>
+        )}
+        {task.comments !== undefined && (
+          <span className="task-card__icon">
+            <MessageCircle size={14} /> {task.comments}
+          </span>
+        )}
+        {task.reports && (
+          <span className="task-card__reports">
+            <AlertCircle size={14} className="text-red-500" /> {task.reports}
+          </span>
+        )}
+        {task.due && (
+          <span className="task-card__due">
+            <CalendarDays size={14} /> Due: {task.due}
+          </span>
+        )}
       </div>
     </div>
   );
