@@ -35,7 +35,7 @@ body {
 .sidebar-container {
   position: absolute;
   width: 288px;
-  height: 944px;
+  height: 928px;
   left: 0px;
   top: 80px;
   background: #ffffff;
@@ -470,7 +470,7 @@ svg {
 /* BoardColumn.css */
 
 .board-column {
-  width: 280px;
+  width: 323px;
   min-width: 280px;
   background: #fafafa;
   border-radius: 12px;
@@ -522,4 +522,138 @@ svg {
   gap: 12px;
   max-height: calc(100vh - 200px);
   overflow-y: auto;
+}
+
+.main-section {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  /* equivalent to Tailwind's gap-4 */
+  padding: 1rem;
+  /* equivalent to p-4 */
+  overflow-x: auto;
+  position: relative;
+  background-color: #F4F5F6;
+  top: 80px;
+  margin-left: 288px;
+
+}
+
+.project-header {
+  background-color: white;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  top: 80px;
+  width: 100vw;
+  margin-left: 288px;
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status-badge.in-progress {
+  background-color: #f59e0b;
+  /* Tailwind amber-500 */
+}
+
+.project-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.assigned {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.assigned .label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatars img {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  object-fit: cover;
+  margin-left: -8px;
+  border: 2px solid white;
+}
+
+.avatar-more {
+  margin-left: -8px;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  padding: 0 8px;
+  font-size: 0.875rem;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+.manage-btn {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.manage-btn:hover {
+  background: #f3f4f6;
+}
+
+.last-updated {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fafb;
+  /* light gray background behind entire board */
+  min-height: 100vh;
 }
