@@ -20,7 +20,6 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
@@ -35,7 +34,7 @@ body {
 .sidebar-container {
   position: absolute;
   width: 288px;
-  height: 928px;
+  height: 871px;
   left: 0px;
   top: 80px;
   background: #ffffff;
@@ -470,14 +469,14 @@ svg {
 /* BoardColumn.css */
 
 .board-column {
-  width: 323px;
-  min-width: 280px;
+  width: auto;
+  min-width: 260px;
   background: #fafafa;
   border-radius: 12px;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 9px;
   transition: background 0.2s, border 0.2s;
 }
 
@@ -629,6 +628,7 @@ svg {
 
 .manage-btn {
   background: #f9fafb;
+  color: #B1B5C3;
   border: 1px solid #e5e7eb;
   border-radius: 9999px;
   padding: 0.5rem 1rem;

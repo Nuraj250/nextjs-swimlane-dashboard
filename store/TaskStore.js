@@ -1,12 +1,14 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 
 export const useTaskStore = create((set) => ({
   tasks: [],
-  setTasks: (tasks) => set({ tasks }),
+  setTasks: (newTasks) => set({ tasks: newTasks }),
+
   moveTask: (taskId, newStatus) =>
-    set((state) => ({
-      tasks: state.tasks.map((task) =>
+    set((state) => {
+      const updatedTasks = state.tasks.map((task) =>
         task.id === taskId ? { ...task, status: newStatus } : task
-      ),
-    })),
+      );
+      return { tasks: updatedTasks };
+    }),
 }));
