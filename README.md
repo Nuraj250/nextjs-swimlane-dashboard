@@ -136,7 +136,7 @@ styles/
 
 ## 👨‍💻 Author
 
-* **Your Name**
+* **Nuraj Shaminda**
 * GitHub: [@Nuraj250](https://github.com/Nuraj250)
 
 ---
