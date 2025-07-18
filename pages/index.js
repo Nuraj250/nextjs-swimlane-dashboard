@@ -5,7 +5,6 @@ import BoardColumn from '../components/BoardColumn';
 import TaskCard from '../components/TaskCard';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import TaskModal from '../components/TaskModal';
 
 export default function Home() {
   const [search, setSearch] = useState('');
@@ -16,8 +15,8 @@ export default function Home() {
   const filteredTasks = tasks.filter((task) =>
   task.title.toLowerCase().includes(search.toLowerCase())
 );
-  // Load tasks from localStorage or fetch from JSON
-  useEffect(() => {
+
+useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const saved = localStorage.getItem('tasks');
@@ -36,7 +35,7 @@ export default function Home() {
     }
   }, [setTasks]);
 
-  // Save tasks to localStorage when changed
+
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
@@ -121,9 +120,6 @@ export default function Home() {
                 {activeTask ? <TaskCard task={activeTask} /> : null}
               </DragOverlay>
             </DndContext>
-                      {selectedTask && (
-            <TaskModal task={selectedTask} onClose={() => setSelectedTask(null)} />
-          )}
           </main>
         </div>
       </div>

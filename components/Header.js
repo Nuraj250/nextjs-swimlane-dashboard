@@ -2,7 +2,6 @@ import { Bell, Plus, Search, SlidersHorizontal } from 'lucide-react'
 import { useTaskStore } from '../store/TaskStore'
 
 export default function Header( {search, setSearch }) {
-  console.log('setSearch:', setSearch);
   return (
     <header className="w-full px-6 py-4 border-b flex items-center justify-between bg-white header">
       <div className="flex items-center gap-2">
