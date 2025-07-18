@@ -1,7 +1,10 @@
+// components/TaskCard.js
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 
 export default function TaskCard({ task }) {
+      if (!task) return null; // Prevents crash when task is undefined
+
   const { attributes, listeners, setNodeRef } = useDraggable({
     id: task.id,
   });

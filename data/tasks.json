@@ -2,16 +2,17 @@
   {
     "id": "1",
     "title": "Design System",
-    "category": "Design",
     "status": "To Do",
-    "assigned": [
-      "https://i.pravatar.cc/40?img=1",
-      "https://i.pravatar.cc/40?img=2",
-      "https://i.pravatar.cc/40?img=3",
-      "https://i.pravatar.cc/40?img=4"
-    ],
-    "attachments": 3,
-    "comments": 8,
-    "reports": 2
+    "avatars": ["https://i.pravatar.cc/40?img=1", "https://i.pravatar.cc/40?img=2"],
+    "attachments": 2,
+    "reports": "2 Reports"
+  },
+  {
+    "id": "2",
+    "title": "Create Landing Page",
+    "status": "In Progress",
+    "avatars": ["https://i.pravatar.cc/40?img=3"],
+    "attachments": 1,
+    "reports": "1 Report"
   }
 ]

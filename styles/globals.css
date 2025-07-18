@@ -42,3 +42,107 @@ body {
   z-index: 10;
   border-right: 1px solid #E6E8EC;
 }
+
+.header {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  left: 0px;
+  top: 0px;
+}
+
+svg{
+  margin: 10px;
+}
+
+.newboard {
+  background: #3772FF;
+  border-radius: 6px;
+}
+
+.newboard {
+    background-color: #245fe1;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    height: 50px;
+    margin: 10px;
+}
+
+.newboard:hover {
+  background-color: #1d4ed8;
+  /* hover:bg-blue-700 */
+}
+
+.headerSearch {
+  background-color: #245fe1;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+/* Search bar */
+
+/* styles/Header.css */
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12px;
+  gap: 12px;
+
+  width: 240px;
+  height: 48px;
+
+  background: #F4F5F6;
+  border-radius: 8px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  color: #333;
+}
+
+/* Header/ item / Workspace */
+.workspace-item{
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 8px 12px;
+gap: 20px;
+
+position: absolute;
+width: 240px;
+height: 64px;
+left: 25px;
+top: 104px;
+
+/* Neutral / Neutral-7 */
+border: 2px solid #F4F5F6;
+border-radius: 8px;
+}

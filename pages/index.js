@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
-import { useTaskStore } from '../store/useTaskStore';
+import React, { useEffect, useState } from 'react';
+import { DndContext, DragOverlay } from '@dnd-kit/core';
+import { useTaskStore } from '../store/TaskStore';
+import BoardColumn from '../components/BoardColumn';
+import TaskCard from '../components/TaskCard';
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 
 export default function Home() {
-  const { tasks, setTasks } = useTaskStore();
+  const { tasks, setTasks, moveTask } = useTaskStore();
+  const [activeId, setActiveId] = useState(null);
 
-  // Load data from localStorage or mock JSON
   useEffect(() => {
+    if (typeof window === 'undefined') return; // ✅ Ensure we're in the browser
+
     const saved = localStorage.getItem('tasks');
     if (saved) {
       setTasks(JSON.parse(saved));
@@ -16,36 +22,52 @@ export default function Home() {
         .then(data => setTasks(data));
     }
   }, []);
-
-  // Persist to localStorage
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
+    console.log(localStorage)
+
   }, [tasks]);
 
   const columns = ['To Do', 'In Progress', 'Approved', 'Reject'];
 
+  const handleDragStart = (event) => {
+    setActiveId(event.active.id);
+  };
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+    if (over && active.id !== over.id) {
+      moveTask(active.id, over.id); // Over.id = status column ID
+    }
+    setActiveId(null);
+  };
+
+  const activeTask = tasks.find((t) => t.id === activeId);
+
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
-      <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
-        {columns.map((column) => (
-          <div key={column}>
-            <h2 className="font-bold text-lg mb-2">{column}</h2>
-            <div className="space-y-2">
-              {tasks
-                .filter(task => task.status === column)
-                .map(task => (
-                  <div
-                    key={task.id}
-                    className="bg-white rounded-lg shadow p-4"
-                  >
-                    <h3 className="font-semibold">{task.title}</h3>
-                    <p className="text-sm text-gray-500">{task.description}</p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        ))}
+
+      <div className="flex flex-1">
+        {/* ✅ Sidebar */}
+        <Sidebar />
+
+        {/* ✅ Board Area */}
+        <main className="flex-1 overflow-x-auto p-4 flex gap-4">
+          <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+            {columns.map((column) => (
+              <BoardColumn
+                key={column}
+                status={column}
+                tasks={tasks.filter((task) => task.status === column)}
+              />
+            ))}
+
+            <DragOverlay>
+              {activeTask ? <TaskCard task={activeTask} /> : null}
+            </DragOverlay>
+          </DndContext>
+        </main>
       </div>
     </div>
   );
