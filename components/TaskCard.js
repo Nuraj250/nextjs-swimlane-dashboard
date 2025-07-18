@@ -1,44 +1,56 @@
-import { Pencil } from 'lucide-react'
+import { FaBolt, FaPaperclip, FaComments } from 'react-icons/fa';
 
-const TaskCard = () => {
+export default function TaskCard({ task }) {
   return (
-    <div className="bg-white border rounded-xl p-4 shadow-sm space-y-3">
-      {/* Top row */}
-      <div className="flex items-start justify-between">
-        <h2 className="font-semibold text-gray-800">Sport Xi Project</h2>
-        <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded-md">In progress</span>
+    <div className="bg-white rounded-xl shadow p-4 space-y-3 border hover:shadow-md transition">
+      {/* Tag */}
+      <div className="flex items-center space-x-2 text-xs">
+        <span className="w-2 h-2 rounded-full bg-red-500" />
+        <span className="text-gray-500 font-medium">{task.category}</span>
       </div>
 
-      {/* Subtitle */}
-      <p className="text-sm text-gray-500">event production</p>
+      {/* Title */}
+      <h3 className="font-semibold text-sm text-gray-800">{task.title}</h3>
 
-      {/* Assigned section */}
+      {/* Avatars + Manage */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1">
-          <span className="text-sm text-gray-500 mr-2">assigned</span>
-
-          {/* Avatars */}
-          <div className="flex -space-x-2">
-            <img src="/avatar1.png" alt="User" className="w-6 h-6 rounded-full border-2 border-white" />
-            <img src="/avatar2.png" alt="User" className="w-6 h-6 rounded-full border-2 border-white" />
-            <img src="/avatar3.png" alt="User" className="w-6 h-6 rounded-full border-2 border-white" />
-            <div className="w-6 h-6 rounded-full bg-gray-200 text-xs flex items-center justify-center border-2 border-white">
-              +2
+        <div className="flex -space-x-2">
+          {task.assigned?.slice(0, 3).map((avatar, i) => (
+            <img
+              key={i}
+              src={avatar}
+              className="w-6 h-6 rounded-full border-2 border-white"
+              alt=""
+            />
+          ))}
+          {task.assigned?.length > 3 && (
+            <div className="w-6 h-6 bg-gray-200 text-xs flex items-center justify-center rounded-full border-2 border-white">
+              +{task.assigned.length - 3}
             </div>
-          </div>
+          )}
         </div>
-
-        {/* Manage Button */}
-        <button className="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">
-          Manage
-          <Pencil size={14} />
+        <button className="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-lg flex items-center space-x-1">
+          <span>Manage</span>
+          <FaPaperclip className="w-3 h-3" />
         </button>
       </div>
 
-      {/* Last Updated */}
-      <p className="text-xs text-gray-400 pt-2 border-t">Last updated on: 04 April, 2022</p>
+      {/* Bottom */}
+      <div className="flex items-center justify-between text-xs text-gray-500 pt-2 border-t">
+        <div className="flex items-center space-x-2">
+          <span className="flex items-center space-x-1">
+            <FaPaperclip className="w-3 h-3" />
+            <span>{task.attachments}</span>
+          </span>
+          <span className="flex items-center space-x-1">
+            <FaComments className="w-3 h-3" />
+            <span>{task.comments}</span>
+          </span>
+        </div>
+        {task.reports > 0 && (
+          <span className="text-red-500 font-semibold">{task.reports} Reports</span>
+        )}
+      </div>
     </div>
-  )
+  );
 }
-
-export default TaskCard
