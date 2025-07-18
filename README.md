@@ -137,7 +137,7 @@ styles/
 ## 👨‍💻 Author
 
 * **Your Name**
-* GitHub: [@your-username](https://github.com/Nuraj250)
+* GitHub: [@Nuraj250](https://github.com/Nuraj250)
 
 ---
 
