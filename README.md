@@ -1,6 +1,8 @@
 
 # 🏊‍♂️ Swimlane Task Board – Next.js + Zustand + TailwindCSS
 
+![Dashboard Screenshot](./public/screenshots/dashboard.png)
+
 A pixel-perfect, responsive Swimlane-style task dashboard built with **Next.js**, styled using **TailwindCSS**, with **drag-and-drop**, **state management** using **Zustand**, **search filtering**, and **localStorage** persistence.
 
 ---
@@ -118,7 +120,7 @@ styles/
 
 ## 📸 Screenshots
 
-> Add relevant screenshots of your dashboard UI here
+![Search Screenshot](./public/screenshots/Search.png)
 
 ---
 
