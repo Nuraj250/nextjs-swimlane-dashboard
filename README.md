@@ -124,16 +124,6 @@ styles/
 
 ---
 
-## ✅ Submission Guidelines
-
-> As per the assignment instructions:
-
-* Please submit this project as a public **GitHub** or **Bitbucket** repo.
-* **You must commit your changes incrementally** with meaningful messages, not all at once.
-* Include this README in your root directory.
-
----
-
 ## 👨‍💻 Author
 
 * **Nuraj Shaminda**
